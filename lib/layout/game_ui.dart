@@ -234,16 +234,16 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                 if (game.isMultiplayer) {
                                   var f = File(path.join(assetsPath, 'hacks/sendToServer.txt'));
                                   if (f.existsSync()) {
-                                    f.createSync();
-                                    var a = f.readLineSync();
+                                    var a = f.readAsLinesSync();
                                     if (a != null) {
                                       for (var i in a) {
                                         game.sendToServer(i);
                                       }
                                     } else {
-                                      game.sendToServer('place 0 0 error 0 0');
+                                      game.sendToServer('place 0 1 error 0 0');
                                     }
                                   } else {
+                                    f.createSync();
                                     game.sendToServer('place 0 0 error 0 0');
                                   }
                                 }
