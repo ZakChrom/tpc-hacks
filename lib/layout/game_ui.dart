@@ -10,14 +10,7 @@ TextStyle fontSize(double fontSize) {
   );
 }
 
-void sendToServerJsonFile() {
-  var f = File(path.join(assetsPath, 'hacks/hacks.json'));
-  if (!f.existsSync()) {
-    f.createSync();
-    return f.jsonDecode(file.readAsStringSync())['sendToServer'];
-  }
-  return "place 0 0 error 0 0";
-}
+
 
 Map<String, bool> keys = {};
 
@@ -249,7 +242,12 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                             MaterialButton(
                               onPressed: () {
                                 if (game.isMultiplayer) {
-                                  game.sendToServer(sendToServerJsonFile());
+                                  var f = File(path.join(assetsPath, 'hacks/hacks.json'));
+                                  if (!f.existsSync()) {
+                                    f.createSync();
+                                    game.sendToServer(f.jsonDecode(f.readAsStringSync())['sendToServer']);
+                                  }
+                                  game.sendToServer('place 0 0 error 0 0');
                                 }
                               },
                             ),
