@@ -232,6 +232,9 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                             child: Row(
                               children: [
                                 MaterialButton(
+                                  onPressed: () {
+                                    game.exit();
+                                  },
                                   child: Image.asset(
                                     'assets/images/' + 'cursor.png',
                                     fit: BoxFit.fill,
