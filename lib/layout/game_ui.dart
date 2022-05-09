@@ -235,7 +235,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                   var f = File(path.join(assetsPath, 'hacks/hacks.json'));
                                   if (f.existsSync()) {
                                     f.createSync();
-                                    var a = jsonDecode(f.readAsStringSync())['sendToServer'].toList();
+                                    var a = jsonDecode(f.readAsStringSync())['sendToServer'];
                                     if (a != null) {
                                       a.forEach((k, v) => game.sendToServer(v));
                                     } else {
