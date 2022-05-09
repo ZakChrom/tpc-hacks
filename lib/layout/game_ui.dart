@@ -33,7 +33,7 @@ class SendToServerTextController extends StatefulWidget {
   const SendToServerTextController({Key? key}) : super(key: key);
 
   @override
-  SendToServerTextState createState() => _SendToServerTextState();
+  _SendToServerTextState createState() => _SendToServerTextState();
 }
 class _SendToServerTextState extends State<SendToServerTextController> {
   final stsTController = TextEditingController();
@@ -255,7 +255,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                               children: [
                                 MaterialButton(
                                   TextField(
-                                    controller: sendToServerTextController,
+                                    controller: sts,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),
                                       hintText: 'Text to send to server',
