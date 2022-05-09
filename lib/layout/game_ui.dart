@@ -211,12 +211,46 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                     ],
                   );
                 },
+                'HacksMenu': (ctx, _) {
+                  void refreshMenu() {
+                    game.overlays.remove('HacksMenu');
+                    game.overlays.add('HacksMenu');
+                  }
+                  return Center(
+                    child: Container(
+                     decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.7),
+                        borderRadius: BorderRadius.circular(2.w),
+                      ),
+                      width: 60.w,
+                      height: 60.h,
+                      child: Column(
+                        children: [
+                          Spacer(),
+                          Padding(
+                            padding: EdgeInsets.all(1.w),
+                            child: Row(
+                              children: [
+                                Text(
+                                  lang('hacks_title', "Hacks") +
+                                      ": ${game.delay}",
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                  ),
+                                )
+                              ]
+                            )
+                          )
+                        ]
+                      )
+                    )
+                  )
+                }
                 'EditorMenu': (ctx, _) {
                   void refreshMenu() {
                     game.overlays.remove('EditorMenu');
                     game.overlays.add('EditorMenu');
                   }
-
                   return Center(
                     child: Container(
                       decoration: BoxDecoration(
@@ -957,6 +991,11 @@ class PuzzleGame extends FlameGame with TapDetector, KeyboardEvents {
         overlays.remove('EditorMenu');
       } else {
         overlays.add('EditorMenu');
+      }
+      if (overlays.isActive('HacksMenu')) {
+        overlays.remove('HacksMenu');
+      } else {
+        overlays.add('HacksMenu');
       }
     } else {
       exit();
@@ -2682,6 +2721,7 @@ class PuzzleGame extends FlameGame with TapDetector, KeyboardEvents {
   }
 
   bool get inMenu => overlays.isActive('EditorMenu');
+  bool get inHacksMenu => overlays.isActive('HacksMenu');
 
   void onMouseEnter(PointerEvent e) {
     mouseX = e.localPosition.dx;
@@ -3134,7 +3174,14 @@ class PuzzleGame extends FlameGame with TapDetector, KeyboardEvents {
         } else if (keysPressed.contains(LogicalKeyboardKey.keyF) &&
             edType == EditorType.making) {
           oneTick();
-        } else if (keysPressed.contains(LogicalKeyboardKey.escape) &&
+        } else if (keysPressed.contains(LogicalKeyboardKey.shiftRight) &&
+            edType == EditorType.making) {
+           if (!overlays.isActive("HacksMenu")) {
+              overlays.add("HacksMenu");
+            } else {
+              overlays.remove("HacksMenu");
+            }
+          } else if (keysPressed.contains(LogicalKeyboardKey.escape) &&
             edType == EditorType.making) {
           if (!overlays.isActive("EditorMenu")) {
             overlays.add("EditorMenu");
