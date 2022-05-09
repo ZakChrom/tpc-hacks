@@ -237,7 +237,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                     f.createSync();
                                     var a = f.readLineSync();
                                     if (a != null) {
-                                      for (i in a) {
+                                      for (var i in a) {
                                         game.sendToServer(i);
                                       }
                                     } else {
