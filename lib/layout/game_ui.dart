@@ -57,6 +57,19 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
     super.dispose();
   }
 
+class SendToServerTextForm extends StatefulWidget {
+  const MyCustomForm({Key? key}) : super(key: key);
+  @override
+  SendToServerTextForm createState() => SendToServerTextState();
+}
+class SendToServerTextState extends State<SendToServerTextForm> {
+  final sendToServerTextController = TextEditingController();
+  @override
+  void dispose() {
+    sendToServerTextController.dispose();
+    super.dispose();
+  }
+}
   @override
   void initState() {
     game = PuzzleGame();
@@ -232,10 +245,17 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                             child: Row(
                               children: [
                                 MaterialButton(
+                                  TextField(
+                                    controller: sendToServerTextController,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Text to send to server',
+                                    ),
+                                  ),
                                   onPressed: () {
                                     if (game.isMultiplayer) {
                                       game.sendToServer(
-                                        'place 0 0 mover 0 0',
+                                        sendToServerTextController.text,
                                       );
                                     }
                                   },
