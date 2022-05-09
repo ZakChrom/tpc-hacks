@@ -264,7 +264,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                   onPressed: () {
                                     if (game.isMultiplayer) {
                                       game.sendToServer(
-                                        sendToServerTextController.text,
+                                        stsTController.text,
                                       );
                                     }
                                   },
