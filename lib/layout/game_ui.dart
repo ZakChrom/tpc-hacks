@@ -11,7 +11,7 @@ TextStyle fontSize(double fontSize) {
 }
 
 void sendToServerJsonFile() {
-  var f = File(path.join(Directory(path.join(assetsPath, 'hacks'));, 'hacks.json'));
+  var f = File(path.join(assetsPath, 'hacks/hacks.json'));
   if (!f.existsSync()) {
     f.createSync();
     return f.readLineAsSync()['sendToServer'];
