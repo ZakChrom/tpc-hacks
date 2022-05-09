@@ -35,7 +35,7 @@ class SendToServerTextController extends StatefulWidget {
   @override
   SendToServerTextState createState() => _SendToServerTextState();
 }
-class _SendToServerTextState extends State<_SendToServerTextController> {
+class _SendToServerTextState extends State<SendToServerTextController> {
   final stsTController = TextEditingController();
 
   @override
