@@ -232,42 +232,40 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                           Spacer(),
                           Padding(
                             padding: EdgeInsets.all(1.w),
-                            children: [
-                              Image.asset(
-                                'assets/images/' + 'cursor.png',
-                                fit: BoxFit.fill,
-                                colorBlendMode: BlendMode.clear,
-                                filterQuality: FilterQuality.none,
-                                isAntiAlias: true,
-                                cacheWidth: 10.w.toInt(),
-                                cacheHeight: 10.w.toInt(),
-                                scale: 32 / 5.w,
-                              ),
-                              TextField(
-                                controller: textCon,
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  hintText: 'Text to send to server'
-                                )
-                              ),
-                              MaterialButton(
-                                onPressed: () {
-                                  if (game.isMultiplayer) {
-                                    game.sendToServer(
-                                      textCon.text,
-                                    );
-                                  }
-                                },
-                              ),
-                              Text(
-                                lang('hacks_title', "Hacks"),
-                                style: TextStyle(
-                                  fontSize: 10.sp,
-                                ),
+                            Image.asset(
+                              'assets/images/' + 'cursor.png',
+                              fit: BoxFit.fill,
+                              colorBlendMode: BlendMode.clear,
+                              filterQuality: FilterQuality.none,
+                              isAntiAlias: true,
+                              cacheWidth: 10.w.toInt(),
+                              cacheHeight: 10.w.toInt(),
+                              scale: 32 / 5.w,
+                            ),
+                            TextField(
+                              controller: textCon,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Text to send to server'
                               )
-                            ]
+                            ),
+                            MaterialButton(
+                              onPressed: () {
+                                if (game.isMultiplayer) {
+                                  game.sendToServer(
+                                    textCon.text,
+                                  );
+                                }
+                              },
+                            ),
+                            Text(
+                              lang('hacks_title', "Hacks"),
+                              style: TextStyle(
+                                fontSize: 10.sp,
+                              ),
+                            )
                           )
-                        ]
+                        ])
                       )
                     )
                   );
