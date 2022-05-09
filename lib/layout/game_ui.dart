@@ -244,8 +244,8 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                         ]
                       )
                     )
-                  )
-                }
+                  );
+                },
                 'EditorMenu': (ctx, _) {
                   void refreshMenu() {
                     game.overlays.remove('EditorMenu');
