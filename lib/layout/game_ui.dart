@@ -27,6 +27,27 @@ class GameUI extends StatefulWidget {
   _GameUIState createState() => _GameUIState();
 }
 
+
+
+class SendToServerTextController extends StatefulWidget {
+  const sendToServerTextController({Key? key}) : super(key: key);
+
+  @override
+  _SendToServerTextState createState() => _sendToServerTextState();
+}
+class _SendToServerTextState extends State<SendToServerTextController> {
+  final stsTController = TextEditingController();
+
+  @override
+  void dispose() {
+    stsTController.dispose();
+    super.dispose();
+  }
+}
+
+
+
+
 class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
   final scrollController = ScrollController();
 
@@ -46,6 +67,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
     // _rotcontroller.stop();
     // _rotcontroller.dispose();
     scrollController.dispose();
+    stsTController.dispose();
     editorMenuWidthController.dispose();
     editorMenuHeightController.dispose();
 
@@ -57,19 +79,6 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
     super.dispose();
   }
 
-class SendToServerTextForm extends StatefulWidget {
-  const MyCustomForm({Key? key}) : super(key: key);
-  @override
-  SendToServerTextForm createState() => SendToServerTextState();
-}
-class SendToServerTextState extends State<SendToServerTextForm> {
-  final sendToServerTextController = TextEditingController();
-  @override
-  void dispose() {
-    sendToServerTextController.dispose();
-    super.dispose();
-  }
-}
   @override
   void initState() {
     game = PuzzleGame();
