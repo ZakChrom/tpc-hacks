@@ -229,8 +229,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                       height: 60.h,
                       Padding(
                           padding: EdgeInsets.all(1.w),
-                          child: Row(
-                            Image.asset(
+                          child: Row(children: [Image.asset(
                           'assets/images/' + 'cursor.png',
                               fit: BoxFit.fill,
                               colorBlendMode: BlendMode.clear,
@@ -260,8 +259,9 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                 fontSize: 10.sp,
                               ),
                             )
-                          )
+                          ]
                         )
+                      )
                     )
                   );
                 },
