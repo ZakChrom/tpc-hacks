@@ -227,7 +227,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                       ),
                       width: 60.w,
                       height: 60.h,
-                      Padding(
+                      child: Padding(
                           padding: EdgeInsets.all(1.w),
                           child: Row(children: [Image.asset(
                           'assets/images/' + 'cursor.png',
