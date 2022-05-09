@@ -29,28 +29,9 @@ class GameUI extends StatefulWidget {
 
 
 
-class SendToServerTextController extends StatefulWidget {
-  const SendToServerTextController({Key? key}) : super(key: key);
-
-  @override
-  _SendToServerTextState createState() => _SendToServerTextState();
-}
-class _SendToServerTextState extends State<SendToServerTextController> {
-  final stsTController = TextEditingController();
-
-  @override
-  void dispose() {
-    stsTController.dispose();
-    super.dispose();
-  }
-}
-
-
-
-
 class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
   final scrollController = ScrollController();
-
+  final textCon = TextEditingController();
   int page = 0;
 
   final editorMenuWidthController = TextEditingController();
@@ -67,7 +48,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
     // _rotcontroller.stop();
     // _rotcontroller.dispose();
     scrollController.dispose();
-    stsTController.dispose();
+    textCon.dispose();
     editorMenuWidthController.dispose();
     editorMenuHeightController.dispose();
 
@@ -253,7 +234,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                             padding: EdgeInsets.all(1.w),
                             child: Row(
                               TextField(
-                                controller: stsTController,
+                                controller: textCon,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(),
                                   hintText: 'Text to send to server',
@@ -274,7 +255,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                   onPressed: () {
                                     if (game.isMultiplayer) {
                                       game.sendToServer(
-                                        stsTController.text,
+                                        textCon.text,
                                       );
                                     }
                                   },
