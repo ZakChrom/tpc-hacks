@@ -232,7 +232,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                           Spacer(),
                           Padding(
                             padding: EdgeInsets.all(1.w),
-                            child: Row(
+                            child: [ Row(
                               TextField(
                                 controller: textCon,
                                 decoration: InputDecoration(
@@ -267,7 +267,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                   ),
                                 )
                               ]
-                            )
+                            )]
                           )
                         ]
                       )
