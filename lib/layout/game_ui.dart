@@ -233,7 +233,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                           Padding(
                             padding: EdgeInsets.all(1.w),
                             children: [
-                              child: Image.asset(
+                              Image.asset(
                                 'assets/images/' + 'cursor.png',
                                 fit: BoxFit.fill,
                                 colorBlendMode: BlendMode.clear,
@@ -258,7 +258,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                     );
                                   }
                                 },
-                              )
+                              ),
                               Text(
                                 lang('hacks_title', "Hacks"),
                                 style: TextStyle(
