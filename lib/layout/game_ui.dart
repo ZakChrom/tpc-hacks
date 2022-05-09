@@ -10,6 +10,15 @@ TextStyle fontSize(double fontSize) {
   );
 }
 
+void sendToServerJsonFile() {
+  var f = File(path.join(Directory(path.join(assetsPath, 'hacks'));, 'hacks.json'));
+  if (!f.existsSync()) {
+    f.createSync();
+    return f.readLineAsSync()['sendToServer'];
+  }
+  return "place 0 0 error 0 0"
+}
+
 Map<String, bool> keys = {};
 
 const halfPi = pi / 2;
@@ -31,7 +40,6 @@ class GameUI extends StatefulWidget {
 
 class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
   final scrollController = ScrollController();
-  final textCon = TextEditingController();
   int page = 0;
 
   final editorMenuWidthController = TextEditingController();
@@ -48,7 +56,6 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
     // _rotcontroller.stop();
     // _rotcontroller.dispose();
     scrollController.dispose();
-    textCon.dispose();
     editorMenuWidthController.dispose();
     editorMenuHeightController.dispose();
 
@@ -239,17 +246,10 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                               cacheHeight: 10.w.toInt(),
                               scale: 32 / 5.w,
                             ),
-                            TextField(
-                              controller: textCon,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Text to send to server'
-                              )
-                            ),
                             MaterialButton(
                               onPressed: () {
                                 if (game.isMultiplayer) {
-                                  game.sendToServer(textCon.text);
+                                  game.sendToServer(sendToServerJsonFile());
                                 }
                               },
                             ),

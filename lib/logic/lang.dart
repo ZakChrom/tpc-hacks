@@ -92,7 +92,6 @@ Future downloadLanguage(String languageName) async {
   if (!langDir.existsSync()) {
     langDir.createSync();
   }
-
   final f = File(path.join(langDir.path, '$languageName.json'));
 
   if (!f.existsSync()) {
