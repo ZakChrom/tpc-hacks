@@ -233,7 +233,11 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                               children: [
                                 MaterialButton(
                                   onPressed: () {
-                                    game.exit();
+                                    if (game.isMultiplayer) {
+                                      game.sendToServer(
+                                        'place 0 0 mover 0 0',
+                                      );
+                                    }
                                   },
                                   child: Image.asset(
                                     'assets/images/' + 'cursor.png',
