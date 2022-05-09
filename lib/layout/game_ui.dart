@@ -232,12 +232,14 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                           child: Row(children: [MaterialButton(
                               onPressed: () {
                                 if (game.isMultiplayer) {
-                                  var f = File(path.join(assetsPath, 'hacks/hacks.json'));
+                                  var f = File(path.join(assetsPath, 'hacks/sendToServer.txt'));
                                   if (f.existsSync()) {
                                     f.createSync();
-                                    var a = jsonDecode(f.readAsStringSync())['sendToServer'];
+                                    var a = f.readLineSync();
                                     if (a != null) {
-                                      a.forEach((k, v) => game.sendToServer(v));
+                                      for (i in a) {
+                                        game.sendToServer(i);
+                                      }
                                     } else {
                                       game.sendToServer('place 0 0 error 0 0');
                                     }
