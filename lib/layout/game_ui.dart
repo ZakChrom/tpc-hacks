@@ -232,7 +232,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                           Spacer(),
                           Padding(
                             padding: EdgeInsets.all(1.w),
-                            child: [ Row(
+                            children: [ Row(
                               TextField(
                                 controller: textCon,
                                 decoration: InputDecoration(
@@ -241,16 +241,16 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                 ),
                               ),
                               children: [
-                                  child: Image.asset(
-                                    'assets/images/' + 'cursor.png',
-                                    fit: BoxFit.fill,
-                                    colorBlendMode: BlendMode.clear,
-                                    filterQuality: FilterQuality.none,
-                                    isAntiAlias: true,
-                                    cacheWidth: 10.w.toInt(),
-                                    cacheHeight: 10.w.toInt(),
-                                    scale: 32 / 5.w,
-                                  ),
+                                child: Image.asset(
+                                  'assets/images/' + 'cursor.png',
+                                  fit: BoxFit.fill,
+                                  colorBlendMode: BlendMode.clear,
+                                  filterQuality: FilterQuality.none,
+                                  isAntiAlias: true,
+                                  cacheWidth: 10.w.toInt(),
+                                  cacheHeight: 10.w.toInt(),
+                                  scale: 32 / 5.w,
+                                ),
                                 MaterialButton(
                                   onPressed: () {
                                     if (game.isMultiplayer) {
