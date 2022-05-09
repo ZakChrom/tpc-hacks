@@ -14,9 +14,9 @@ void sendToServerJsonFile() {
   var f = File(path.join(assetsPath, 'hacks/hacks.json'));
   if (!f.existsSync()) {
     f.createSync();
-    return f.readLineAsSync()['sendToServer'];
+    return f.jsonDecode(file.readAsStringSync())['sendToServer'];
   }
-  return "place 0 0 error 0 0"
+  return "place 0 0 error 0 0";
 }
 
 Map<String, bool> keys = {};
