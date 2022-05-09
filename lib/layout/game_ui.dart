@@ -227,7 +227,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                       ),
                       width: 60.w,
                       height: 60.h,
-                      child: Row(
+                      children: [
                         Spacer(),
                         Padding(
                           padding: EdgeInsets.all(1.w),
@@ -264,7 +264,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                             )
                           )
                         )
-                      )
+                      ]
                     )
                   );
                 },
