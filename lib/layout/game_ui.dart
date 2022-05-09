@@ -67,7 +67,7 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
     // _rotcontroller.stop();
     // _rotcontroller.dispose();
     scrollController.dispose();
-    _SendToServerTextState.dispose();
+    stsTController.dispose();
     editorMenuWidthController.dispose();
     editorMenuHeightController.dispose();
 
