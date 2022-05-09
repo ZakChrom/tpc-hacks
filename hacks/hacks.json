@@ -1,3 +1,6 @@
 {
-    "sendToServer": "place 0 1 mover 0 0"
+    "sendToServer": [
+        "place 0 1 mover 0 0",
+        "place 0 2 enemy 0 0"
+    ]
 }
