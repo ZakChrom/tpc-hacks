@@ -1,0 +1,74 @@
+name: the_puzzle_cell
+description: The Puzzle Cell
+
+publish_to: "none"
+
+version: "2.0.0"
+gameVersion: "2.0.1.0"
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  clipboard: any
+  cupertino_icons: ^1.0.2
+  flame: ^1.1.1
+  flame_splash_screen: any
+  fluent_ui:
+    git: https://github.com/bdlukaa/fluent_ui.git
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: any
+  http: ^0.13.4
+  dart_vlc: ^0.2.0
+  path: any
+  shared_preferences: ^2.0.13
+  sizer: any
+  uuid: any
+  web_socket_channel: any
+  yaml: ^3.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+    - assets/images/mechanical/
+    - assets/images/skins/
+    - assets/images/unique/
+    - assets/images/movers/
+    - assets/images/movers/combos/
+    - assets/images/movers/movers/
+    - assets/images/movers/pullers/
+    - assets/images/movers/drillers/
+    - assets/images/movers/grabbers/
+    - assets/images/movers/speeds/
+    - assets/images/backgrounds/
+    - assets/images/movers/mirrors/
+    - assets/images/rotators/
+    - assets/images/push/
+    - assets/images/push/restricted/
+    - assets/images/push/restricted/Only/
+    - assets/images/destroyers/
+    - assets/images/destroyers/trash/
+    - assets/images/destroyers/enemy/
+    - assets/images/recreators/
+    - assets/images/recreators/supgens/
+    - assets/images/recreators/generators/
+    - assets/images/recreators/replicators/
+    - assets/images/recreators/tunnels/
+    - assets/images/recreators/tunnels/warpers/
+    - assets/images/recreators/transformers/
+    - assets/images/curves/
+    - assets/images/puzzle/
+    - assets/images/interface/
+    - assets/images/quantum/
+    - assets/images/effects/
+    - assets/images/heat/
+    - assets/images/unique/time_travel/
+    - assets/audio/
+    - languages/

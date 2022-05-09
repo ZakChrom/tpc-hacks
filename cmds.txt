@@ -1,0 +1,10 @@
+dart pub update
+git init
+git remote add https://github.com/ZakChrom/fuck-you-vscode-2022.git
+git add .
+git commit -m "4"
+git push -f repo
+
+flutter upgrade
+flutter channel beta
+flutter upgrade
