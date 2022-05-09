@@ -8,3 +8,5 @@ git push -f repo
 flutter upgrade
 flutter channel beta
 flutter upgrade
+
+git add .;git commit -m "";git push -f repo

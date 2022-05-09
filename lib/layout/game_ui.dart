@@ -30,12 +30,12 @@ class GameUI extends StatefulWidget {
 
 
 class SendToServerTextController extends StatefulWidget {
-  const sendToServerTextController({Key? key}) : super(key: key);
+  const SendToServerTextController({Key? key}) : super(key: key);
 
   @override
-  _SendToServerTextState createState() => _sendToServerTextState();
+  SendToServerTextState createState() => _SendToServerTextState();
 }
-class _SendToServerTextState extends State<SendToServerTextController> {
+class _SendToServerTextState extends State<_SendToServerTextController> {
   final stsTController = TextEditingController();
 
   @override
