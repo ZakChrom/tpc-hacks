@@ -231,9 +231,20 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                             padding: EdgeInsets.all(1.w),
                             child: Row(
                               children: [
+                                MaterialButton(
+                                  child: Image.asset(
+                                    'assets/images/' + 'cursor.png',
+                                    fit: BoxFit.fill,
+                                    colorBlendMode: BlendMode.clear,
+                                    filterQuality: FilterQuality.none,
+                                    isAntiAlias: true,
+                                    cacheWidth: 10.w.toInt(),
+                                    cacheHeight: 10.w.toInt(),
+                                    scale: 32 / 5.w,
+                                  ),
+                                ),
                                 Text(
-                                  lang('hacks_title', "Hacks") +
-                                      ": ${game.delay}",
+                                  lang('hacks_title', "Hacks"),
                                   style: TextStyle(
                                     fontSize: 10.sp,
                                   ),
@@ -354,46 +365,46 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                             ),
                           ),
                           Spacer(),
-                          // Padding(
-                          //   padding: EdgeInsets.all(1.w),
-                          //   child: Row(
-                          //     children: [
-                          //       //Spacer(flex: 2),
-                          //       Text(
-                          //         "Border: ${(cellInfo[borders[borderMode]] ?? defaultProfile).title}",
-                          //         style: TextStyle(
-                          //           fontSize: 12.sp,
-                          //         ),
-                          //       ),
-                          //       Spacer(),
-                          //       Container(
-                          //         width: 25.w,
-                          //         height: 10.h,
-                          //         padding: EdgeInsets.all(2.w),
-                          //         child: Slider(
-                          //           style: SliderThemeData(
-                          //             thumbColor: Colors.black,
-                          //             activeColor: Colors.blue,
-                          //             inactiveColor: Colors.black,
-                          //             disabledActiveColor: Colors.black,
-                          //             disabledInactiveColor: Colors.black,
-                          //             disabledThumbColor: Colors.black,
-                          //             useThumbBall: true,
-                          //           ),
-                          //           value: borderMode.toDouble(),
-                          //           min: 0,
-                          //           max: borders.length - 1,
-                          //           divisions: borders.length - 1,
-                          //           onChanged: (newVal) {
-                          //             borderMode = newVal.toInt();
-                          //             refreshMenu();
-                          //           },
-                          //         ),
-                          //       ),
-                          //       //Spacer(flex: 2),
-                          //     ],
-                          //   ),
-                          // ),
+                          Padding(
+                            padding: EdgeInsets.all(1.w),
+                            child: Row(
+                              children: [
+                                Spacer(flex: 2),
+                                Text(
+                                  "Border: ${(cellInfo[borders[borderMode]] ?? defaultProfile).title}",
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                  ),
+                                ),
+                                Spacer(),
+                                Container(
+                                  width: 25.w,
+                                  height: 10.h,
+                                  padding: EdgeInsets.all(2.w),
+                                  child: Slider(
+                                    style: SliderThemeData(
+                                      thumbColor: Colors.black,
+                                      activeColor: Colors.blue,
+                                      inactiveColor: Colors.black,
+                                      disabledActiveColor: Colors.black,
+                                      disabledInactiveColor: Colors.black,
+                                      disabledThumbColor: Colors.black,
+                                      useThumbBall: true,
+                                    ),
+                                    value: borderMode.toDouble(),
+                                    min: 0,
+                                    max: borders.length - 1,
+                                    divisions: borders.length - 1,
+                                    onChanged: (newVal) {
+                                      borderMode = newVal.toInt();
+                                      refreshMenu();
+                                    },
+                                  ),
+                                ),
+                                Spacer(flex: 2),
+                              ],
+                            ),
+                          ),
                           Spacer(),
                           Row(
                             children: [
@@ -991,11 +1002,6 @@ class PuzzleGame extends FlameGame with TapDetector, KeyboardEvents {
         overlays.remove('EditorMenu');
       } else {
         overlays.add('EditorMenu');
-      }
-      if (overlays.isActive('HacksMenu')) {
-        overlays.remove('HacksMenu');
-      } else {
-        overlays.add('HacksMenu');
       }
     } else {
       exit();
