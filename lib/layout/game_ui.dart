@@ -252,22 +252,14 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                           Padding(
                             padding: EdgeInsets.all(1.w),
                             child: Row(
+                              TextField(
+                                controller: stsTController,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'Text to send to server',
+                                ),
+                              ),
                               children: [
-                                MaterialButton(
-                                  TextField(
-                                    controller: sts,
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      hintText: 'Text to send to server',
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    if (game.isMultiplayer) {
-                                      game.sendToServer(
-                                        stsTController.text,
-                                      );
-                                    }
-                                  },
                                   child: Image.asset(
                                     'assets/images/' + 'cursor.png',
                                     fit: BoxFit.fill,
@@ -278,7 +270,15 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                                     cacheHeight: 10.w.toInt(),
                                     scale: 32 / 5.w,
                                   ),
-                                ),
+                                MaterialButton(
+                                  onPressed: () {
+                                    if (game.isMultiplayer) {
+                                      game.sendToServer(
+                                        stsTController.text,
+                                      );
+                                    }
+                                  },
+                                )
                                 Text(
                                   lang('hacks_title', "Hacks"),
                                   style: TextStyle(
