@@ -229,25 +229,16 @@ class _GameUIState extends State<GameUI> with TickerProviderStateMixin {
                       height: 60.h,
                       child: Padding(
                           padding: EdgeInsets.all(1.w),
-                          child: Row(children: [Image.asset(
-                          'assets/images/' + 'cursor.png',
-                              fit: BoxFit.fill,
-                              colorBlendMode: BlendMode.clear,
-                              filterQuality: FilterQuality.none,
-                              isAntiAlias: true,
-                              cacheWidth: 10.w.toInt(),
-                              cacheHeight: 10.w.toInt(),
-                              scale: 32 / 5.w,
-                            ),
-                            MaterialButton(
+                          child: Row(children: [MaterialButton(
                               onPressed: () {
                                 if (game.isMultiplayer) {
                                   var f = File(path.join(assetsPath, 'hacks/hacks.json'));
-                                  if (!f.existsSync()) {
+                                  if (f.existsSync()) {
                                     f.createSync();
                                     game.sendToServer(jsonDecode(f.readAsStringSync())['sendToServer']);
+                                  } else {
+                                    game.sendToServer('place 0 0 error 0 0');
                                   }
-                                  game.sendToServer('place 0 0 error 0 0');
                                 }
                               },
                             ),
